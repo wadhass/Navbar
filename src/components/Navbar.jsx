@@ -3,7 +3,7 @@ import Logo from "../assets/Logo.svg";
 const Navbar = () => {
   return (
     <header className="bg-gray-300 fixed top-0 left-0 w-full z-10">
-   <nav className="bg-green-700 flex items-center justify-between text-white h-[60px]">
+   <nav className="bg-pink-500 flex items-center justify-between text-white h-[60px]">
     <img src={Logo} alt="Logo.svg" className="w-[150px]"/>
     <ul className="space-x-10">
         <a href="#home"className="hover:text-red-600 transition duration-200">Home</a>

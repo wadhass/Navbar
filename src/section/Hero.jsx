@@ -15,7 +15,7 @@ text-white z-0">
             contribute to innovative projects!</p>
           <button 
           onClick={() => alert("Hire Me")}
-           className="bg-red-700 text-white text-[18px] py-4 px-12 rounded-full hover:bg-red-800
+           className="bg-pink-500 text-white text-[18px] py-4 px-12 rounded-full hover:bg-pink-600
           focus:ring-[2px] focus:ring-red-700 focus:ring-offset-[1px] outline-none">
             Hire Me
           </button>
