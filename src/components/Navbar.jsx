@@ -46,7 +46,7 @@ const Navbar = () => {
           </a>
          
           <a
-            href="#contact"
+            href="#contactme"
             className="py-2 lg:py-0 hover:bg-orange-500 w-full lg:w-auto px-3 rounded-lg text-center"
           >
             ContactMe
