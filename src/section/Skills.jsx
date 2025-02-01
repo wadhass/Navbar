@@ -1,84 +1,119 @@
 import { useState } from "react";
 import Card from "../components/Card";
-import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaFigma } from "react-icons/fa";
+import { SiTailwindcss } from "react-icons/si";
+import {
+  FaReact,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaFigma,
+  FaNode,
+  FaDatabase,
+  FaGit,
+  FaGithub,
+  FaTrello,
+  FaSlack,
+  FaMobileAlt,
+} from "react-icons/fa";
 
 const Skills = () => {
   const [activeSkill, setActiveSkill] = useState(null);
 
-  const skills = [
+  const frontEndSkills = [
     {
       Name: "JavaScript",
-      Level: "Expert",
-      LevelBgColor: "bg-yellow-500",
-      LevelTextColor: "text-white",
-      LevelBorderColor: "border-yellow-500",
-      NameColor: "text-yellow-700",
-      SkillIcon: <FaJs />,
+      Level: "Advanced",
+      SkillIcon: <FaJs className="text-yellow-500" />,
     },
     {
       Name: "React",
       Level: "Advanced",
-      LevelBgColor: "bg-blue-500",
-      LevelTextColor: "text-white",
-      LevelBorderColor: "border-blue-500",
-      NameColor: "text-blue-700",
-      SkillIcon: <FaReact />,
+      SkillIcon: <FaReact className="text-cyan-500" />,
     },
     {
-      Name: "Responsive",
+      Name: "Responsive Design",
       Level: "Advanced",
-      LevelBgColor: "bg-blue-500",
-      LevelTextColor: "text-white",
-      LevelBorderColor: "border-blue-500",
-      NameColor: "text-blue-700",
-      SkillIcon: <FaReact />,
+      SkillIcon: <FaMobileAlt className="text-purple-500" />,
     },
     {
-      Name: "Tailwindcss",
+      Name: "TailwindCSS",
       Level: "Advanced",
-      LevelBgColor: "bg-blue-500",
-      LevelTextColor: "text-white",
-      LevelBorderColor: "border-blue-500",
-      NameColor: "text-blue-700",
-      SkillIcon: <FaReact />,
+      SkillIcon: <SiTailwindcss className="text-teal-500" />,
     },
     {
       Name: "HTML",
       Level: "Advanced",
-      LevelBgColor: "bg-yellow-500",
-      LevelTextColor: "text-white",
-      LevelBorderColor: "border-yellow-500",
-      NameColor: "text-yellow-700",
-      SkillIcon: <FaHtml5 />,
+      SkillIcon: <FaHtml5 className="text-orange-500" />,
     },
     {
       Name: "CSS",
       Level: "Intermediate",
-      LevelBgColor: "bg-purple-500",
-      LevelTextColor: "text-white",
-      LevelBorderColor: "border-purple-500",
-      NameColor: "text-purple-700",
-      SkillIcon: <FaCss3Alt />,
+      SkillIcon: <FaCss3Alt className="text-blue-500" />,
+    },
+  ];
+
+  const backEndSkills = [
+    {
+      Name: "Node.js",
+      Level: "Advanced",
+      SkillIcon: <FaNode className="text-green-500" />,
+    },
+    {
+      Name: "MongoDB",
+      Level: "Intermediate",
+      SkillIcon: <FaDatabase className="text-green-600" />,
+    },
+    {
+      Name: "SQL",
+      Level: "Intermediate",
+      SkillIcon: <FaDatabase className="text-blue-500" />,
+    },
+    {
+      Name: "Express",
+      Level: "Intermediate",
+      SkillIcon: <FaDatabase className="text-gray-500" />,
+    },
+  ];
+
+  const tools = [
+    {
+      Name: "Git",
+      Level: "Advanced",
+      SkillIcon: <FaGit className="text-red-500" />,
+    },
+    {
+      Name: "GitHub",
+      Level: "Advanced",
+      SkillIcon: <FaGithub className="text-black" />,
     },
     {
       Name: "Figma",
       Level: "Advanced",
-      LevelBgColor: "bg-blue-500",
-      LevelTextColor: "text-white",
-      LevelBorderColor: "border-blue-500",
-      NameColor: "text-blue-700",
-      SkillIcon: <FaFigma />,
+      SkillIcon: <FaFigma className="text-pink-500" />,
+    },
+    {
+      Name: "Trello",
+      Level: "Intermediate",
+      SkillIcon: <FaTrello className="text-blue-600" />,
+    },
+    {
+      Name: "Slack",
+      Level: "Intermediate",
+      SkillIcon: <FaSlack className="text-purple-600" />,
     },
   ];
 
-  return (
-    <main id="skills" className="h-screen bg-blue-100 py-10 flex items-center justify-center">
-      <div className="max-w-5xl mx-auto flex flex-wrap gap-6 justify-center">
+  const renderSkills = (skills, title) => (
+    <div className="w-full">
+      <h2 className="text-2xl font-bold mb-6 text-gray-300">{title}</h2>
+      <div className="flex flex-wrap gap-6 justify-center">
         {skills.map((skill, index) => (
           <div
             key={index}
             className={`relative transition-transform duration-300 ease-in-out cursor-pointer ${
-              activeSkill === skill.Name ? "translate-y-[-10px]" : "hover:translate-y-[-5px]"
+              activeSkill === skill.Name
+                ? "translate-y-[-10px] shadow-lg shadow-yellow-500/50"
+                : "hover:translate-y-[-5px] hover:shadow-md hover:shadow-blue-500/50"
             }`}
             onClick={() =>
               setActiveSkill(activeSkill === skill.Name ? null : skill.Name)
@@ -86,15 +121,27 @@ const Skills = () => {
           >
             <Card
               SkillName={skill.Name}
-              SkillNameColor={skill.NameColor}
               SkillLevel={skill.Level}
-              SkillLevelBgColor={skill.LevelBgColor}
-              SkillLevelTextColor={skill.LevelTextColor}
-              SkillLevelBorderColor={skill.LevelBorderColor}
               SkillIcon={skill.SkillIcon}
             />
           </div>
         ))}
+      </div>
+    </div>
+  );
+
+  return (
+    <main
+      id="skills"
+      className="min-h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-black flex flex-col items-center justify-start pt-[12vh] text-white"
+    >
+      <h1 className="text-4xl sm:text-5xl font-bold mb-8 text-gray-300 animate-fadeIn">
+        My Skills
+      </h1>
+      <div className="w-full max-w-5xl px-4 sm:px-8 lg:px-16 space-y-12">
+        {renderSkills(frontEndSkills, "Front-end")}
+        {renderSkills(backEndSkills, "Back-end")}
+        {renderSkills(tools, "Tools")}
       </div>
     </main>
   );
