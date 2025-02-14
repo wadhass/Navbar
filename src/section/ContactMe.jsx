@@ -1,6 +1,6 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
-
+import coding from "../assets/coding.jpeg";
 
 const ContactMe = () => {
   const [formData, setFormData] = useState({
@@ -48,22 +48,17 @@ const ContactMe = () => {
   return (
     <section
       id="contactme"
-      className="relative w-full h-auto sm:h-[100vh] flex flex-col items-center justify-center z-0 text-black"
-     
+      className="relative bg-gray-900 w-full h-auto sm:h-[100vh] flex flex-col sm:flex-row items-center justify-center text-black p-6"
     >
-     
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-900"></div>
-
-     
-      <div className="relative z-10 text-center px-4 sm:px-0">
+      {/* Form Container */}
+      <div className="flex-1 flex flex-col items-start text-left px-4 sm:px-12">
         <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-300">Contact Me</h2>
-        <p className="text-gray-200 mb-6 max-w-lg sm:max-w-xl mx-auto">
+        <p className="text-gray-200 mb-6 max-w-lg">
           Feel free to reach out to me through the form below or connect via social media.
         </p>
 
-      
         <form
-          className="flex flex-col gap-4 bg-white bg-opacity-10 backdrop-blur-lg p-6 rounded-lg shadow-lg max-w-md mx-auto w-full sm:max-w-lg"
+          className="flex flex-col gap-4 bg-gray-900 border border-gray-500 backdrop-blur-lg p-6 rounded-lg shadow-lg w-full max-w-lg"
           onSubmit={handleSubmit}
         >
           <input
@@ -71,7 +66,7 @@ const ContactMe = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="p-3 rounded-md bg-white bg-opacity-50 text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            className="p-3 rounded-md bg-gray-900 text-gray-300 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500"
             required
             placeholder="Your Name"
           />
@@ -80,7 +75,7 @@ const ContactMe = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="p-3 rounded-md bg-white bg-opacity-50 text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            className="p-3 rounded-md bg-gray-900 text-gray-300 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500"
             required
             placeholder="Your Email"
           />
@@ -89,12 +84,12 @@ const ContactMe = () => {
             value={formData.message}
             onChange={handleChange}
             placeholder="Your Message"
-            className="p-3 rounded-md bg-white bg-opacity-50 text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            className="p-3 rounded-md bg-gray-900 text-gray-300 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500"
             required
           ></textarea>
           <button
             type="submit"
-            className="bg-gray-900 border border-gray-500 text-white font-semibold py-3 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            className="bg-gray-900 border border-gray-500 text-white font-semibold py-3 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500"
           >
             Send Your Message
           </button>
@@ -103,12 +98,24 @@ const ContactMe = () => {
           <p className="mt-4 text-green-400 font-semibold">{submissionMessage}</p>
         )}
       </div>
+
+      {/* Image Container */}
+      <div className="flex-1 flex flex-col justify-center items-center mt-6 sm:mt-0">
+        <img
+          src={coding}
+          alt="coding"
+          className="w-[300px] sm:w-[400px] md:w-[500px] object-cover mt-32 shadow-lg rounded-lg"
+        />
+        <div className="text-center mt-4 text-gray-300">
+          <h3 className="text-xl font-semibold">Full-Stack Developer</h3>
+          <p>I'm available for freelance or full-time positions.</p>
+          <p>Contact me and let's talk.</p>
+          <p className="font-bold">+250734332198</p>
+          <p className="font-bold">ahmedhassansumu@gmail.com</p>
+        </div>
+      </div>
     </section>
   );
 };
 
 export default ContactMe;
-
-
-
-

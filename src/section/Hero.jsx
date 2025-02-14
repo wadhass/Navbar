@@ -28,7 +28,7 @@ const Hero = () => {
         <h1 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-orange-500 drop-shadow-lg">
           <Typewriter
             options={{
-              strings: ["Hi, I'm Ahmed", "Full-Stack Developer", "Creative Thinker"],
+              strings: ["Hi, I'm Ahmed", "Full-Stack Developer", "Front-end Developer", "Back-end Developer", "Creative Thinker"],
               autoStart: true,
               loop: true,
               delay: 75,
@@ -46,7 +46,7 @@ const Hero = () => {
         </p>
         <button
           onClick={scrollToContact}
-          className="bg-gray-900 text-white text-sm sm:text-base md:text-lg py-2 px-4 sm:py-2 border border-gray-500 sm:px-8 rounded-full hover:bg-gray-800 focus:ring-[2px] focus:ring-red-700 focus:ring-offset-[1px] outline-none"
+          className="bg-gray-900 text-white text-sm sm:text-base md:text-lg py-2 px-4 sm:py-2 border border-gray-500 sm:px-8 rounded-full hover:bg-gray-800 focus:ring-[2px] focus:ring-gray-700 focus:ring-offset-[1px] outline-none"
         >
           Contact Me
         </button>

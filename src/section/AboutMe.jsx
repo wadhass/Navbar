@@ -27,11 +27,11 @@ const AboutMe = () => {
         </p>
         <ul className="list-disc text-white text-sm sm:text-base">
           <li>
-            <span className="font-extrabold ">Frontend and Backend Development:</span> HTML,
+            <span className="font-extrabold">Frontend and Backend Development:</span> HTML,
             CSS, JavaScript, and React. Node.js 
           </li>
           <li>
-            <span className="font-extrabold">Design & Prototyping:</span>{" "}
+            <span className="font-extrabold">Design & Prototyping:</span> 
             Expertise in Figma for crafting visually stunning UI/UX designs.
           </li>
           <li>
@@ -53,6 +53,15 @@ const AboutMe = () => {
           improve my craft and collaborating with like-minded individuals to
           create impactful web experiences.
         </p>
+        
+        {/* Download PDF Button */}
+        <a
+          href="/full.pdf"
+          download
+          className="mt-4 px-6 py-3 bg-gray-900 text-white font-bold border border-gray-400 rounded-lg shadow-md hover:bg-gray-800 transition"
+        >
+          Download CV
+        </a>
       </div>
     </main>
   );
