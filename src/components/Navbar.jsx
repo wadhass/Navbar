@@ -28,7 +28,8 @@ const Navbar = () => {
   return (
     <header className="bg-gray-300 fixed top-0 left-0 w-full z-10">
       <nav className="bg-gray-900 flex items-center justify-between text-white h-[60px] px-4">
-        <p className="text-3xl font-semibold text-orange-500 border border-gray-400 rounded-lg bg-gray-900 px-3 py-2 w-32">Ahmed</p>
+        <p className="text-3xl font-semibold text-orange-500 border border-gray-500 
+         rounded-lg bg-gray-900 px-3 py-2 w-32">Ahmed</p>
         <button
           className="text-white text-2xl lg:hidden"
           onClick={() => setIsOpen(!isOpen)}

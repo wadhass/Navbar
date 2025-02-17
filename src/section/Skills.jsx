@@ -63,6 +63,7 @@ const Skills = () => {
             whileHover={{ scale: 1.1 }}
           >
             <motion.div className="flex flex-col items-center justify-center" transition={{ duration: 0.3 }}>
+     
               <div className="text-4xl">{skill.SkillIcon}</div>
               <h3 className="mt-2 text-lg font-semibold">{skill.Name}</h3>
               <p className="text-sm text-gray-400">{skill.Level}</p>
@@ -76,15 +77,28 @@ const Skills = () => {
   return (
     <main
       id="skills"
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-900 to-black flex flex-col items-center justify-start pt-[12vh] text-white"
+      className="min-h-screen bg-gradient-to-br  from-gray-900 via-gray-900 to-black flex flex-col items-center justify-start pt-[12vh] text-white"
     >
       <motion.h1 className="text-4xl sm:text-5xl font-bold mb-8 text-gray-300" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
         My Skills
       </motion.h1>
       <div className="w-full max-w-5xl px-4 sm:px-8 lg:px-16 space-y-12">
-        {renderSkills(frontEndSkills, "Front-end")}
-        {renderSkills(backEndSkills, "Back-end")}
-        {renderSkills(tools, "Tools")}
+        
+      <div className="flex w-auto items-center">
+          <p className="w-50  text-2xl w-44 mt-14"> Front end </p>
+          {renderSkills(frontEndSkills)}
+        </div>
+        <div className="flex w-auto items-center ">
+          <p className="w-50  text-2xl w-44 mt-14"> Back-end</p>
+          {renderSkills(backEndSkills)}
+        </div>
+        <div className="flex w-auto items-center">
+          <p className="w-50  text-2xl w-44 mt-14"> Tools </p>
+          {renderSkills(tools)}
+        </div>
+
+        
+      
       </div>
     </main>
   );

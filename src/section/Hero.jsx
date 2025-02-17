@@ -35,7 +35,7 @@ const Hero = () => {
             }}
           />
         </h1>
-        <p className="text-white text-sm sm:text-base md:text-lg drop-shadow-md leading-relaxed">
+        <p className="text-white  text-sm sm:text-base md:text-lg drop-shadow-md leading-relaxed">
           A passionate Frontend and Backend Developer who turns design ideas into functional and 
           interactive websites. My expertise includes HTML, CSS, JavaScript, React, and 
           Tailwind CSS. With a strong background in Figma prototyping, I focus on creating 
@@ -46,7 +46,8 @@ const Hero = () => {
         </p>
         <button
           onClick={scrollToContact}
-          className="bg-gray-900 text-white text-sm sm:text-base md:text-lg py-2 px-4 sm:py-2 border border-gray-500 sm:px-8 rounded-full hover:bg-gray-800 focus:ring-[2px] focus:ring-gray-700 focus:ring-offset-[1px] outline-none"
+          className="bg-gray-900 text-white text-sm sm:text-base md:text-lg py-2 px-6 sm:py-3 border border-gray-500 sm:px-4 rounded-lg
+           hover:bg-gray-800 focus:ring-[2px] focus:ring-gray-700 focus:ring-offset-[1px] outline-none"
         >
           Contact Me
         </button>

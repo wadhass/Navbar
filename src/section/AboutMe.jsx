@@ -58,7 +58,8 @@ const AboutMe = () => {
         <a
           href="/full.pdf"
           download
-          className="mt-4 px-6 py-3 bg-gray-900 text-white font-bold border border-gray-400 rounded-lg shadow-md hover:bg-gray-800 transition"
+          className="mt-4 px-6 py-3 bg-gray-900 text-white font-bold border border-gray-400 
+         mr-44 rounded-lg shadow-md hover:bg-gray-800 transition"
         >
           Download CV
         </a>
