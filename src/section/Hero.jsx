@@ -1,58 +1,37 @@
-import Typewriter from "typewriter-effect";
-import AHMED from "../assets/AHMED.jpg";
+import { ArrowDown, ArrowDownToLine, ArrowUpRight, Github } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import portrait from "../assets/hero-focus.jpg";
+import { usePortfolioLanguage } from "../context/usePortfolioLanguage";
 
 const Hero = () => {
-  const scrollToContact = () => {
-    const contactSection = document.getElementById("contactme");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
+  const { t } = usePortfolioLanguage();
+  const reduceMotion = useReducedMotion();
   return (
-    <main
-      id="home"
-      className="relative flex flex-col lg:flex-row-reverse items-center h-[100vh] gap-6 px-5 
-      md:px-8 lg:px-10 bg-cover bg-center bg-origin-padding text-black z-0"
-      style={{ backgroundImage: `url(${AHMED})` }}
-    >
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-900 z-[-1]"></div>
-      <div className="w-full lg:w-1/3 flex mt-20 justify-center lg:justify-end z-10">
-        <img
-          src={AHMED}
-          alt="AHMED"
-          className="w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[350px] lg:h-[350px] object-cover rounded-full shadow-lg"
-        />
+    <section id="home" className="hero-section">
+      <div className="hero-grid page-wrap">
+        <motion.div className="hero-copy" initial={reduceMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.62, ease: "easeOut" }}>
+          <p className="hero-eyebrow"><span className="availability-dot" />{t.available}</p>
+          <p className="hero-role">{t.eyebrow}</p>
+          <h1>{t.heroTitle}</h1>
+          <p className="hero-description">{t.heroBody}</p>
+          <div className="hero-actions">
+            <a className="button" href="#project">{t.viewProjects}<ArrowDown aria-hidden="true" /></a>
+            <a className="button button--light" href="#contactme">{t.contactMe}<ArrowUpRight aria-hidden="true" /></a>
+            <a className="cv-link" href="/full.pdf" download><ArrowDownToLine aria-hidden="true" /> CV</a>
+          </div>
+          <a className="hero-github" href="https://github.com/wadhass" target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" /> {t.github} <ArrowUpRight aria-hidden="true" /></a>
+        </motion.div>
+        <motion.div className="hero-portrait-wrap" initial={reduceMotion ? false : { opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" }}>
+          <div className="portrait-frame"><img src={portrait} alt="Ahmed Hassan, Full-Stack Developer" /></div>
+          <span className="portrait-caption">Ahmed Hassan <span>·</span> Developer</span>
+          <span className="portrait-index" aria-hidden="true">01 / 05</span>
+        </motion.div>
       </div>
-      <div className="w-full lg:w-3/5 space-y-5 z-10 text-center lg:text-left px-2 sm:px-5">
-        <h1 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-orange-500 drop-shadow-lg">
-          <Typewriter
-            options={{
-              strings: ["Hi, I'm Ahmed", "Full-Stack Developer", "Front-end Developer", "Back-end Developer", "Creative Thinker"],
-              autoStart: true,
-              loop: true,
-              delay: 75,
-            }}
-          />
-        </h1>
-        <p className="text-white  text-sm sm:text-base md:text-lg drop-shadow-md leading-relaxed">
-          A passionate Frontend and Backend Developer who turns design ideas into functional and 
-          interactive websites. My expertise includes HTML, CSS, JavaScript, React, and 
-          Tailwind CSS. With a strong background in Figma prototyping, I focus on creating 
-          pixel-perfect, responsive web applications that work seamlessly across all devices.
-          I enjoy bridging the gap between design and development, ensuring every project I 
-          work on delivers an excellent user experience. I’m always eager to learn and grow, 
-          excited to contribute to innovative projects!
-        </p>
-        <button
-          onClick={scrollToContact}
-          className="bg-gray-900 text-white text-sm sm:text-base md:text-lg py-2 px-6 sm:py-3 border border-gray-500 sm:px-4 rounded-lg
-           hover:bg-gray-800 focus:ring-[2px] focus:ring-gray-700 focus:ring-offset-[1px] outline-none"
-        >
-          Contact Me
-        </button>
+      <div className="hero-bottom page-wrap">
+        <span>{t.stackLabel}</span>
+        <div className="hero-tech-list" aria-label="Technologies: JavaScript, React, Node.js, Tailwind CSS"><span>JavaScript</span><span>React</span><span>Node.js</span><span>Tailwind CSS</span></div>
       </div>
-    </main>
+    </section>
   );
 };
 

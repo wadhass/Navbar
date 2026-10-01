@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
+import { usePortfolioLanguage } from "../context/usePortfolioLanguage"
 
 const NotFound = () => {
+  const { t } = usePortfolioLanguage()
   return (
-    <div className="h-screen flex flex-col justify-center items-center gap-4 z-0">
-        <h1 className="text-6xl font-extrabold">404</h1>
-        <h1 className=" text-5xl font-bold text-red-700">Page not Found</h1>
-        <Link to="/" className="bg-green-900 text-white text-[18px] py-4 px-12 rounded-full hover:bg-green-800
-        focus:ring-[2px] focus:ring-red-700 focus:ring-offset-[1px] outline-none">Go Home </Link>
-    </div>
+    <main className="not-found page-wrap">
+        <p className="section-eyebrow">404</p>
+        <h1 className="section-title">{t.notFound}</h1>
+        <Link to="/" className="button">{t.backHome}</Link>
+    </main>
   )
 }  
 export default NotFound

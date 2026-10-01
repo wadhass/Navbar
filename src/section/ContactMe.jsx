@@ -1,20 +1,26 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
-import coding from "../assets/coding.jpeg";
+import { ArrowUpRight, Github, Mail, Phone } from "lucide-react";
+import Reveal from "../components/Reveal";
+import { usePortfolioLanguage } from "../context/usePortfolioLanguage";
 
 const ContactMe = () => {
+  const { t } = usePortfolioLanguage();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [submissionMessage, setSubmissionMessage] = useState("");
+  const [submissionMessage, setSubmissionMessage] = useState({ text: "", success: false });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setSubmissionMessage({ text: "", success: false });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    emailjs
-      .send(
+    setIsSubmitting(true);
+    try {
+      await emailjs.send(
         "service_1ce59rk",
         "template_ot55r3t",
         {
@@ -24,69 +30,39 @@ const ContactMe = () => {
           message: formData.message,
         },
         "JqXTmq6GgW1-tNr48"
-      )
-      .then(
-        (response) => {
-          console.log("Email sent successfully:", response);
-          setFormData({ name: "", email: "", message: "" });
-          setSubmissionMessage("Thank you! Your message has been sent.");
-        },
-        (error) => {
-          console.error("Failed to send email:", error);
-          setSubmissionMessage("Oops! Something went wrong. Please try again.");
-        }
       );
+      setFormData({ name: "", email: "", message: "" });
+      setSubmissionMessage({ text: t.messageSent, success: true });
+    } catch {
+      setSubmissionMessage({ text: t.messageFailed, success: false });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section id="contactme" className="w-full bg-gray-900 text-white py-12 px-6 flex flex-col md:flex-row items-center justify-center gap-12">
-      {/* Form Container */}
-      <div className="flex-1 max-w-lg w-full">
-        <h2 className="text-3xl font-bold mb-6 text-center md:text-left">Contact Me</h2>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-gray-800 p-6 rounded-lg shadow-lg">
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="p-3 bg-gray-700 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
-            required
-            placeholder="Your Name"
-          />
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="p-3 bg-gray-700 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
-            required
-            placeholder="Your Email"
-          />
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Your Message"
-            className="p-3 h-32 bg-gray-700 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
-            required
-          ></textarea>
-          <button type="submit" className="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500">
-            Send Message
-          </button>
-        </form>
-        {submissionMessage && <p className="mt-4 text-green-400 font-semibold text-center">{submissionMessage}</p>}
-      </div>
-
-      {/* Image and Contact Info */}
-      <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-        <img src={coding} alt="coding" className="w-64 md:w-80 lg:w-96 object-cover shadow-lg rounded-lg" />
-        <div className="mt-4">
-          <h3 className="text-xl font-semibold">Full-Stack Developer</h3>
-          <p className="text-gray-400">I'm available for freelance or full-time positions.</p>
-          <p className="text-gray-400 mt-2">Feel free to reach out through the form or connect with me directly:</p>
-          <p className="font-bold text-lg mt-3">+250 734 332 198</p>
-          <p className="font-bold text-lg">ahmedhassansumu@gmail.com</p>
-        </div>
+    <section id="contactme" className="section contact-section">
+      <div className="page-wrap contact-layout">
+        <Reveal className="contact-copy">
+          <p className="section-eyebrow">06 — {t.nav.contact}</p>
+          <h2 className="section-title">{t.contactTitle}</h2>
+          <p className="section-copy">{t.contactIntro}</p>
+          <a className="contact-detail" href="mailto:ahmedhassansumu@gmail.com"><Mail aria-hidden="true" /><span><small>{t.emailLabel}</small>ahmedhassansumu@gmail.com</span><ArrowUpRight aria-hidden="true" /></a>
+          <a className="contact-detail" href="tel:+250734332198"><Phone aria-hidden="true" /><span><small>{t.phoneLabel}</small>+250 734 332 198</span><ArrowUpRight aria-hidden="true" /></a>
+          <a className="contact-detail" href="https://github.com/wadhass" target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" /><span><small>{t.github}</small>github.com/wadhass</span><ArrowUpRight aria-hidden="true" /></a>
+        </Reveal>
+        <Reveal className="contact-form-wrap" delay={0.1}>
+          <form onSubmit={handleSubmit} className="contact-form">
+            <label htmlFor="contact-name">{t.nameLabel}</label>
+            <input id="contact-name" type="text" name="name" value={formData.name} onChange={handleChange} autoComplete="name" required maxLength={120} />
+            <label htmlFor="contact-email">{t.emailFieldLabel}</label>
+            <input id="contact-email" type="email" name="email" value={formData.email} onChange={handleChange} autoComplete="email" placeholder={t.emailPlaceholder} required maxLength={254} />
+            <label htmlFor="contact-message">{t.messageLabel}</label>
+            <textarea id="contact-message" name="message" value={formData.message} onChange={handleChange} placeholder={t.messagePlaceholder} required minLength={10} maxLength={3000} rows={5} />
+            <button className="button contact-submit" type="submit" disabled={isSubmitting}>{isSubmitting ? t.sending : t.sendMessage}<ArrowUpRight aria-hidden="true" /></button>
+            <p className={`form-status${submissionMessage.success ? " form-status--success" : ""}`} aria-live="polite" role="status">{submissionMessage.text}</p>
+          </form>
+        </Reveal>
       </div>
     </section>
   );
