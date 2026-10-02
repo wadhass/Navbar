@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -101,6 +103,300 @@ img { display: block; max-width: 100%; }
 .hero-bottom > span { color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .12em; }
 .hero-tech-list { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: clamp(14px, 4vw, 48px); color: #35413b; font-size: 13px; font-weight: 650; }
 
+.basha-page {
+  min-height: 100vh;
+  background: #f7f3f1;
+  color: #111111;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+.basha-shell {
+  width: min(1440px, calc(100% - 44px));
+  margin-inline: auto;
+}
+
+.basha-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(247, 243, 241, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.basha-nav {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) auto minmax(0, 0.9fr);
+  align-items: center;
+  min-height: 78px;
+  gap: 20px;
+}
+
+.basha-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.basha-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #2b2b2b;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.basha-nav-link--active {
+  color: #111111;
+  font-weight: 600;
+}
+
+.basha-brand {
+  justify-self: center;
+  color: #1a1a1a;
+  font-size: clamp(2.2rem, 2vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.basha-brand span {
+  color: #d63b3b;
+}
+
+.basha-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+.basha-icon-button, .basha-menu-button {
+  display: inline-flex;
+  place-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  border-radius: 50%;
+  background: transparent;
+  color: #1b1b1b;
+  cursor: pointer;
+}
+
+.basha-cart-button {
+  position: relative;
+}
+
+.basha-cart-count {
+  position: absolute;
+  top: -5px;
+  right: -2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #d34545;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.basha-menu-button {
+  display: none;
+}
+
+.basha-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(315px, 0.92fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  min-height: calc(100vh - 78px);
+  padding: 0 0 2rem;
+}
+
+.basha-copy {
+  padding-left: clamp(0rem, 1vw, 1rem);
+}
+
+.basha-discount {
+  margin: 0 0 2rem;
+  color: #d94545;
+  font-size: clamp(0.9rem, 1vw, 1.15rem);
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+.basha-copy h1 {
+  margin: 0;
+  color: #111111;
+  font-size: clamp(4rem, 5.8vw, 8rem);
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  line-height: 0.9;
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.basha-description {
+  max-width: 620px;
+  margin: 1.4rem 0 0;
+  color: rgba(21, 21, 21, 0.74);
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  line-height: 1.6;
+}
+
+.basha-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 2.2rem;
+  flex-wrap: wrap;
+}
+
+.basha-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 182px;
+  min-height: 60px;
+  padding: 0 1.6rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d94747, #d03030);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 12px 18px rgba(217, 71, 71, 0.22);
+}
+
+.basha-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #191919;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.basha-visual {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: min(100%, 650px);
+  margin-inline: auto;
+}
+
+.basha-visual::before {
+  content: "";
+  position: absolute;
+  inset: 6% 0 0 12%;
+  background: rgba(216, 180, 180, 0.12);
+  border-radius: 999px;
+  filter: blur(24px);
+}
+
+.basha-visual img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(100%, 610px);
+  height: min(76vh, 750px);
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(1.06);
+}
+
+@media (max-width: 900px) {
+  .basha-nav {
+    grid-template-columns: 1fr auto;
+  }
+
+  .basha-nav-links {
+    display: none;
+  }
+
+  .basha-menu-button {
+    display: inline-flex;
+  }
+
+  .basha-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .basha-copy {
+    order: 1;
+    text-align: center;
+  }
+
+  .basha-copy h1 {
+    font-size: clamp(3.8rem, 12vw, 6.5rem);
+    letter-spacing: -0.05em;
+  }
+
+  .basha-description {
+    margin-inline: auto;
+  }
+
+  .basha-cta-row {
+    justify-content: center;
+  }
+
+  .basha-visual {
+    order: 0;
+    width: min(100%, 480px);
+  }
+
+  .basha-visual img {
+    height: min(60vh, 550px);
+  }
+}
+
+@media (max-width: 520px) {
+  .basha-shell {
+    width: min(100% - 28px, 520px);
+  }
+
+  .basha-nav {
+    min-height: 72px;
+  }
+
+  .basha-brand {
+    justify-self: flex-start;
+    font-size: 2.5rem;
+  }
+
+  .basha-actions {
+    gap: 8px;
+  }
+
+  .basha-button {
+    min-width: 160px;
+    min-height: 52px;
+    font-size: 0.86rem;
+  }
+
+  .basha-copy h1 {
+    font-size: clamp(3.2rem, 17vw, 5.2rem);
+  }
+
+  .basha-description {
+    font-size: 1rem;
+  }
+}
+
 .about-section { background: var(--paper); }
 .about-layout { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 1.2fr); gap: clamp(50px, 9vw, 130px); }
 .about-aside .section-title { max-width: 360px; }
@@ -194,6 +490,7 @@ img { display: block; max-width: 100%; }
 .contact-submit:disabled { opacity: .65; cursor: wait; }
 .form-status { min-height: 20px; margin: 0; color: #ffd1c8; font-size: 13px; line-height: 1.5; }
 .form-status--success { color: var(--green); }
+.form-fallback { display: inline-block; margin-top: 7px; color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
 .site-footer { color: #e7ece5; background: #14201c; }
 .footer-main { display: grid; grid-template-columns: minmax(150px, .7fr) minmax(240px, 1.2fr) minmax(220px, .9fr); gap: 32px; padding-block: 46px 38px; }

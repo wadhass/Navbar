@@ -1,5 +1,6 @@
 import { ArrowUpRight, Github } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
 import image1 from "../assets/bookmark.png";
 import image2 from "../assets/tracker.png";
 import image3 from "../assets/calculate.png";
@@ -9,6 +10,15 @@ import Reveal from "../components/Reveal";
 import { usePortfolioLanguage } from "../context/usePortfolioLanguage";
 
 const projects = [
+  {
+    title: "Basha Ecommerce",
+    descriptionKey: "bookmark",
+    imageUrl: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    liveUrl: "https://bashs-ecommerce-frontend.vercel.app/",
+    repoUrl: "https://github.com/wadhass/bashs-ecommerce-frontend",
+    previewUrl: "/basha",
+  },
   {
     title: "Bookmark",
     descriptionKey: "bookmark",
@@ -73,6 +83,7 @@ const ProjectPage = () => {
                 <div className="project-links">
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">{t.liveDemo}<ArrowUpRight aria-hidden="true" /></a>
                   <a href={project.repoUrl} target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" /> {t.sourceCode}</a>
+                  {project.previewUrl ? <Link to={project.previewUrl}>Preview</Link> : null}
                 </div>
               </div>
             </motion.article>
