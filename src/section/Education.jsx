@@ -1,4 +1,4 @@
-import { ArrowUpRight, Award, GraduationCap } from "lucide-react";
+import { Award, GraduationCap } from "lucide-react";
 import Reveal from "../components/Reveal";
 import { usePortfolioLanguage } from "../context/usePortfolioLanguage";
 
@@ -20,10 +20,7 @@ const Education = () => {
               <p className="school-qualification">{t.schoolCredential}<span>{t.schoolYear}</span></p>
               <p className="school-country">{t.schoolCountry}</p>
               <p className="school-summary">{t.schoolSummary}</p>
-              <a className="school-certificate" href="/certificates/secondary-school-transcript.jpg" target="_blank" rel="noopener noreferrer" aria-label={`${t.viewCertificate}: ${t.schoolCertificateAlt}`}>
-                <img src="/certificates/secondary-school-transcript.jpg" alt={t.schoolCertificateAlt} loading="lazy" />
-                <span>{t.viewCertificate}<ArrowUpRight aria-hidden="true" /></span>
-              </a>
+              <div className="school-certificate-placeholder" aria-hidden="true" />
             </article>
           </Reveal>
           <Reveal className="education-panel" delay={0.08}>
